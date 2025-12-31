@@ -1,0 +1,13 @@
+numpy
+pandas
+scikit-learn
+statsmodels
+matplotlib
+pyyaml
+geopandas
+shapely
+pyproj
+pyogrio
+rtree
+lightgbm
+xgboost

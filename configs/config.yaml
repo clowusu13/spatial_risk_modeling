@@ -1,0 +1,25 @@
+target:
+  threshold: 5
+
+spatial_cv:
+  method: grid
+  grid_size_m: 5000
+  n_splits: 5
+  random_state: 42
+
+spatial_features:
+  neighbor_bandwidth_m: [1000, 2000, 3000]
+  weight: inverse_distance
+
+models:
+  logistic:
+    max_iter: 200
+
+  gbm:
+    model: lightgbm
+    num_leaves: 31
+    learning_rate: 0.05
+    n_estimators: 500
+
+  bayes:
+    enabled: false
