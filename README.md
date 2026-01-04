@@ -27,13 +27,17 @@ Raw data stays local under `data/` and is not committed.
 Baseline results using features: pH, depth, and geology unit (one-hot). Metrics are computed from out-of-fold predictions under spatially blocked CV. Coordinates were geomasked for privacy in the shared version, please treat results as illustration only.
 
 Logistic regression (class_weight=balanced):
-- ROC-AUC: ~0.65
-- PR-AUC: ~0.15
-- Best balanced accuracy: ~0.64 (best threshold ~0.50)
+- ROC-AUC: ~0.68
+- PR-AUC: ~0.21
+- threshold sweep shows a clear optimum, with balanced accuracy peaking around: ~0.64 (near threshold ~0.60)
 - n=990, positives=78 (~7.9%)
 
 LightGBM (initial parameters and scale_pos_weight):
-- Under the same blocked CV, LightGBM performed worse than the logistic baseline on ROC/PR metrics in the first pass.
+- ROC-AUC: ~0.61
+- PR-AUC (average precision): ~0.10
+- Threshold sweep remains close to chance across most thresholds (balanced accuracy ~0.50 to ~0.52)
+
+- Takeaway: with the current feature set, the logistic baseline is stronger than the first-pass LightGBM model under spatially blocked validation. 
 
 Next steps to improving the ML comparison fairly includes hyperparameter tuning, handling rare geology categories, and adding spatial lag features.
 
