@@ -2,10 +2,11 @@ target:
   threshold: 5
 
 spatial_cv:
-  method: grid
-  grid_size_m: 5000
+  method: quantile_bins
+  n_bins: 10
   n_splits: 5
   random_state: 42
+
 
 spatial_features:
   neighbor_bandwidth_m: [1000, 2000, 3000]
